@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import Sidebar from '../components/Sidebar';
+import ReportsTable from '../components/ReportsTable';
 import '../styles/dashboard.css';
 import { Doughnut, Line } from 'react-chartjs-2';
 import {
@@ -17,10 +18,10 @@ ChartJS.register(ArcElement, Tooltip, Legend, LineElement, PointElement, Categor
 
 export default function UserDashboard({ onLogout }) {
   const [collapsed, setCollapsed] = useState(false);
-  const [activeTab, setActiveTab] = useState('Home');
+  const [activeTab, setActiveTab] = useState(localStorage.getItem('userActiveTab') || 'Home');
   const [billing, setBilling] = useState('Monthly');
   const [subscribed, setSubscribed] = useState({});
-  const menu = ['Home', 'Identifiers', 'Status', 'Docs', 'Team', 'Subscriptions'];
+  const menu = ['Home', 'Identifiers', 'Status', 'Docs', 'Team', 'New Scan', 'Reports', 'Subscriptions'];
 
   const categories = useMemo(() => ({
     labels: ['Market Listing', 'Forum Posts', 'Profiles', 'Pastes'],
@@ -57,6 +58,15 @@ export default function UserDashboard({ onLogout }) {
     { id: 'Enterprise', name: 'Enterprise Plan', rpm: 'Custom RPM', features: ['Custom SLA', 'Dedicated support', 'SAML SSO', 'Security reviews'], enterprise: true },
   ];
 
+  const [reports] = useState(() => {
+    const saved = localStorage.getItem('userReports');
+    return saved ? JSON.parse(saved) : [
+      { target: 'api.example.com', vendor: 'VendorB', critical: 0, high: 2, medium: 0, status: 'Completed', date: '10/25/2023' },
+      { target: 'test-site.io', vendor: 'OpenSourceScanner', critical: 2, high: 2, medium: 2, status: 'Completed', date: '10/24/2023' }
+    ];
+  });
+
+
   return (
     <div className={`dashboard ${activeTab === 'Subscriptions' ? 'dark' : 'light'}`}>
       <Sidebar
@@ -65,7 +75,10 @@ export default function UserDashboard({ onLogout }) {
         onLogout={onLogout}
         collapsed={collapsed}
         onToggleCollapse={() => setCollapsed(!collapsed)}
-        onSelect={(it) => setActiveTab(it)}
+        onSelect={(it) => { 
+          if (it === 'New Scan') { window.location.href = '/user/new-scan'; return; }
+          setActiveTab(it); localStorage.setItem('userActiveTab', it);
+        }}
         activeItem={activeTab}
       />
       <main className="content">
@@ -74,7 +87,7 @@ export default function UserDashboard({ onLogout }) {
           <div className="right"><button className="icon-btn">🔔</button><button className="icon-btn">👤</button></div>
         </div>
 
-        {activeTab !== 'Subscriptions' && (
+        {activeTab !== 'Subscriptions' && activeTab !== 'Reports' && (
           <div className="grid">
             <section className="card span-8">
               <div className="card-head">
@@ -177,6 +190,10 @@ export default function UserDashboard({ onLogout }) {
               })}
             </div>
           </div>
+        )}
+
+        {activeTab === 'Reports' && (
+          <ReportsTable reports={reports} />
         )}
       </main>
     </div>

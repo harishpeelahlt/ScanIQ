@@ -1,0 +1,4 @@
+.hero { padding: 60px 32px 24px; display: grid; place-items: center; }
+.hero-inner { text-align: center; }
+.sub { color: #8bb3ff; font-weight: 600; letter-spacing: 1px; margin-bottom: 8px; }
+.title { font-size: 40px; line-height: 48px; margin: 0; font-weight: 800; }

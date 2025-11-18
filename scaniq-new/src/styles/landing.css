@@ -1,0 +1,2 @@
+body { background: #000; }
+.landing-wrap { min-height: 100vh; background: radial-gradient(1200px 600px at -10% -20%, rgba(91,108,255,.18), transparent), linear-gradient(180deg, #00162E 0%, #000000 70%); color: #e6edf5; }

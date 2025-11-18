@@ -1,0 +1,12 @@
+.cards-wrap { padding: 24px 32px 48px; }
+.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.lp-card { background: #0d1726; border-radius: 8px; padding: 16px; border: 1px solid rgba(91,108,255,.25); box-shadow: 0 10px 26px rgba(0,0,0,.35); }
+.lp-card-graphic { height: 180px; border-radius: 8px; background: radial-gradient(circle at 60% 40%, rgba(139,92,246,.18), transparent), linear-gradient(180deg, #0d1220, #0a0f1a); display: grid; place-items: center; }
+.graphic-a { width: 90%; height: 60%; background: linear-gradient(180deg, rgba(255,200,0,.3), rgba(91,108,255,.3)); border-radius: 6px; }
+.graphic-b { width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, #5b6cff 0%, transparent 70%), radial-gradient(circle at 60% 40%, #8b5cf6 0%, transparent 70%); }
+.graphic-c { width: 160px; height: 160px; border-radius: 50%; box-shadow: 0 0 0 20px rgba(139,92,246,.15), 0 0 0 40px rgba(91,108,255,.1); }
+.lp-card-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; color: #a8b4c7; }
+.lp-card-title { color: #e6edf5; font-weight: 600; }
+
+@media (max-width: 1024px) { .cards-grid { grid-template-columns: repeat(2,1fr);} }
+@media (max-width: 768px) { .cards-grid { grid-template-columns: repeat(1,1fr);} }

@@ -1,0 +1,40 @@
+.dsc-wrap { padding: 32px 32px 56px; display: grid; justify-items: center; color: #e6edf5; }
+.dsc-head { text-align: center; margin-bottom: 18px; }
+.dsc-sub { color: #8bb3ff; font-weight: 600; letter-spacing: .8px; }
+.dsc-title { margin: 6px 0 0; font-size: 36px; line-height: 44px; font-weight: 800; }
+.dsc-grid { width: 1024px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.dsc-card { background: #0d1220; border-radius: 12px; height: 260px; border: 1px solid rgba(139,92,246,.2); box-shadow: 0 16px 34px rgba(0,0,0,.35); }
+.dsc-inner { width: 100%; height: 100%; border-radius: 12px; overflow: hidden; position: relative; }
+.dsc-graphic { position: absolute; inset: 0; }
+
+.variant-a .dsc-graphic { background:
+  linear-gradient(180deg, transparent 60%, rgba(255,255,255,.06)),
+  radial-gradient(800px 400px at -10% -20%, rgba(91,108,255,.15), transparent),
+  linear-gradient(180deg, #0d1220, #0a0f1a);
+}
+.variant-a .dsc-graphic::before { content:''; position:absolute; left:8%; right:8%; bottom:10%; height:140px; background:
+  linear-gradient(180deg, rgba(255,193,7,.45), rgba(255,193,7,0) 70%),
+  linear-gradient(180deg, rgba(91,108,255,.6), rgba(91,108,255,0) 70%),
+  linear-gradient(180deg, rgba(239,83,80,.5), rgba(239,83,80,0) 70%);
+  -webkit-clip-path: polygon(0 80%, 10% 70%, 18% 76%, 26% 50%, 35% 58%, 46% 40%, 58% 70%, 70% 45%, 84% 68%, 100% 40%, 100% 100%, 0 100%);
+          clip-path: polygon(0 80%, 10% 70%, 18% 76%, 26% 50%, 35% 58%, 46% 40%, 58% 70%, 70% 45%, 84% 68%, 100% 40%, 100% 100%, 0 100%);
+}
+
+.variant-b .dsc-graphic { background:
+  radial-gradient(220px 220px at 50% 48%, rgba(91,108,255,.4), transparent 60%),
+  radial-gradient(180px 160px at 42% 52%, rgba(139,92,246,.35), transparent 70%),
+  radial-gradient(120px 100px at 60% 40%, rgba(0,175,255,.45), transparent 70%),
+  linear-gradient(180deg, #0d1220, #0a0f1a);
+  filter: blur(.2px);
+}
+.variant-b .dsc-graphic::before { content:''; position:absolute; inset:0; background: radial-gradient(100px 90px at 48% 50%, rgba(255,255,255,.06), transparent 60%); }
+
+.variant-c .dsc-graphic { background:
+  radial-gradient(28px 28px at 70% 40%, #ff6b6b, transparent 55%),
+  radial-gradient(26px 26px at 55% 55%, #29b6f6, transparent 55%),
+  radial-gradient(24px 24px at 40% 40%, #8b5cf6, transparent 55%),
+  radial-gradient(22px 22px at 60% 30%, #66bb6a, transparent 55%),
+  radial-gradient(20px 20px at 50% 40%, #ffc107, transparent 55%),
+  radial-gradient(220px 220px at 50% 48%, rgba(255,255,255,.05), transparent 70%),
+  linear-gradient(180deg, #0d1220, #0a0f1a);
+}

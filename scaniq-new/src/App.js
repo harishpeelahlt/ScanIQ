@@ -3,6 +3,8 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Login from './pages/Login';
 import UserDashboard from './pages/UserDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import LandingPage from './pages/LandingPage';
+import UserNewScan from './pages/UserNewScan';
 import AdminThreatFlow from './pages/AdminThreatFlow';
 
 function RequireRole({ children, role }) {
@@ -26,9 +28,26 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<Login />} />
       <Route
         path="/user"
+        element={
+          <RequireRole role="user">
+            <UserDashboard onLogout={onLogout} />
+          </RequireRole>
+        }
+      />
+      <Route
+        path="/user/new-scan"
+        element={
+          <RequireRole role="user">
+            <UserNewScan />
+          </RequireRole>
+        }
+      />
+      <Route
+        path="/dashboard"
         element={
           <RequireRole role="user">
             <UserDashboard onLogout={onLogout} />

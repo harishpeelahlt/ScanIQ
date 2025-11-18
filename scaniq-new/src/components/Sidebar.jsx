@@ -16,6 +16,7 @@ function Icon({ name }) {
     Docs: <path d="M6 2h9l5 5v15a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2zm8 6h5l-5-5v5z" />, 
     Status: <path d="M5 3h4v18H5zm5 6h4v12h-4zm5-4h4v16h-4z" />, 
     Team: <path d="M16 11a4 4 0 10-8 0 4 4 0 008 0zm-9 6a6 6 0 0110 0v3H7v-3z" />
+    , 'New Scan': <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1 5h2v3h3v2h-3v3h-2v-3H8V10h3V7z" />
   };
   const path = map[name] || <circle cx="12" cy="12" r="9" />;
   return (<svg width="18" height="18" viewBox="0 0 24 24"><g fill="currentColor">{path}</g></svg>);

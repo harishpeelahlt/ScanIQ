@@ -1,0 +1,16 @@
+.ns-wrap { padding: 16px; display: flex; justify-content: center; }
+.ns-card { width: 640px; background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,.35); padding: 16px; color: #e5e7eb; }
+.ns-title { font-weight: 700; margin-bottom: 4px; }
+.ns-desc { color: #94a3b8; margin-bottom: 12px; }
+.ns-label { display: block; font-size: 13px; color: #cbd5e1; margin: 8px 0 6px; }
+.ns-input { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #1f2a37; background: #0b1020; color: #e5e7eb; }
+.ns-input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 2px rgba(59,130,246,.3); }
+.ns-error { color: #ef4444; font-size: 12px; margin-top: 4px; }
+.ns-select-wrap { position: relative; }
+.ns-select { width: 100%; appearance: none; padding: 10px 12px; border-radius: 8px; border: 1px solid #1f2a37; background: #0b1020; color: #e5e7eb; }
+.ns-caret { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid #94a3b8; }
+.ns-actions { display: flex; justify-content: flex-end; margin-top: 12px; }
+.ns-btn { background: #3b82f6; color: #0b1020; border: none; padding: 10px 14px; border-radius: 8px; font-weight: 600; }
+.ns-btn:hover { box-shadow: 0 0 12px rgba(59,130,246,.4); }
+.ns-btn:disabled { opacity: .6; cursor: not-allowed; }
+.ns-progress { margin-top: 12px; background: #0b1020; border: 1px solid #1f2a37; border-radius: 8px; padding: 10px; color: #cbd5e1; }

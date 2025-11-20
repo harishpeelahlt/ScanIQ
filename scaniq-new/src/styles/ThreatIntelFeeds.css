@@ -1,0 +1,58 @@
+:root{
+  --tif-bg:#0A192F;
+  --tif-card:#0c1e36;
+  --tif-border:#0f2746;
+  --tif-text:#e5e7eb;
+  --tif-muted:#94a3b8;
+  --tif-shadow:0 12px 28px rgba(0,0,0,.35);
+}
+
+.tif{ display:flex; flex-direction:column; gap:12px; color:var(--tif-text); }
+.tif__layout{ display:flex; gap:16px; }
+.tif__side{ width:220px; display:flex; flex-direction:column; gap:8px;margin-top: 260px; }
+.tif__tab{ background:var(--tif-card); color:var(--tif-text); border:1px solid var(--tif-border); border-radius:8px; box-shadow:var(--tif-shadow); padding:10px 12px; text-align:left; cursor:pointer; }
+.tif__tab.is-active{ outline:2px solid #3b82f6; }
+
+.tif__content-area{ flex:1; }
+.tif__board{ display:flex; flex-direction:column; gap:14px; position:relative; }
+.tif__anchor{ display:inline-flex; align-items:center; justify-content:center; background:var(--tif-card); color:var(--tif-text); border:1px solid var(--tif-border); border-radius:8px; box-shadow:var(--tif-shadow); padding:12px 16px; width:220px; }
+.tif__row{ display:flex; align-items:center; gap:12px; }
+.tif__connector{ flex:0 0 180px; height:2px; background:linear-gradient(90deg, var(--tif-border), rgba(255,255,255,.06)); border-radius:2px; position:relative; margin-left:40px; }
+.tif__block{ display:flex; align-items:center; justify-content:space-between; gap:10px; background:var(--tif-card); color:var(--tif-text); border:1px solid var(--tif-border); border-radius:8px; box-shadow:var(--tif-shadow); padding:14px 18px; width:320px; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, background .18s ease; }
+.tif__block:hover{ transform:translateY(-1px); box-shadow:0 16px 34px rgba(0,0,0,.42); }
+.tif__block.is-active{ outline:2px solid #3b82f6; }
+.tif__label{ font-weight:600; letter-spacing:.2px; }
+.tif__arrow{ color:#98c7ff; }
+
+.tif__panel{ opacity:0; transform:translateY(6px); transition:opacity .24s ease, transform .24s ease; background:var(--tif-card); border:1px solid var(--tif-border); border-radius:10px; padding:16px; }
+.tif__panel--visible{ opacity:1; transform:translateY(0); }
+.tif__title{ margin:0 0 6px; font-size:18px; }
+.tif__desc{ margin:0; color:var(--tif-muted); }
+.tif__error{ background:#111827; color:#ef4444; border:1px solid #374151; border-radius:8px; padding:12px; }
+
+.tif__cards{ display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+.tif__card{ background:var(--tif-card); border:1px solid var(--tif-border); border-radius:10px; box-shadow:var(--tif-shadow); overflow:hidden; display:flex; flex-direction:column; }
+.tif__thumb{ width:100%; height:160px; object-fit:cover; background:#0A192F; }
+.tif__card-body{ padding:12px; }
+.tif__card-title{ margin:0 0 6px; font-size:16px; font-weight:600; }
+.tif__card-desc{ margin:0 0 8px; color:var(--tif-muted); }
+.tif__card-meta{ font-size:12px; color:#cbd5e1; }
+
+.tif__list{ list-style:none; padding:0; margin:8px 0 0; display:flex; flex-direction:column; gap:8px; }
+.tif__list li{ background:var(--tif-card); border:1px solid var(--tif-border); border-radius:8px; padding:10px 12px; }
+
+@media (max-width: 768px){
+  .tif__anchor{ width:180px; }
+  .tif__connector{ flex-basis:120px; margin-left:20px; }
+  .tif__block{ width:280px; padding:12px 16px; }
+  .tif__cards{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px){
+  .tif__board{ gap:12px; }
+  .tif__row{ gap:8px; }
+  .tif__connector{ display:none; }
+  .tif__anchor{ width:auto; }
+  .tif__block{ width:100%; }
+  .tif__side{ width:160px; }
+}

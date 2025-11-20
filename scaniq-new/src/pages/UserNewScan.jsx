@@ -7,7 +7,7 @@ import '../styles/dashboard.css';
 export default function UserNewScan() {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
-  const menu = ['Home', 'Identifiers', 'Status', 'Docs', 'Team', 'New Scan', 'Reports', 'Subscriptions'];
+  const menu = ['Home', 'Identifiers', 'Status', 'Docs', 'Team', 'New Scan', 'Settings', 'Threat Intel Feeds', 'Credentials', 'Reports', 'Subscriptions'];
 
   const handleComplete = (entry) => {
     const saved = localStorage.getItem('userReports');

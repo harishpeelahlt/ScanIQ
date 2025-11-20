@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import ReportsTable from '../components/ReportsTable';
+import SettingsAPIIntegration from '../components/SettingsAPIIntegration';
+import CredentialsDashboard from '../components/CredentialsDashboard';
+import ThreatIntelFeeds from '../components/ThreatIntelFeeds';
 import '../styles/dashboard.css';
 import { Doughnut, Line } from 'react-chartjs-2';
 import {
@@ -21,7 +24,7 @@ export default function UserDashboard({ onLogout }) {
   const [activeTab, setActiveTab] = useState(localStorage.getItem('userActiveTab') || 'Home');
   const [billing, setBilling] = useState('Monthly');
   const [subscribed, setSubscribed] = useState({});
-  const menu = ['Home', 'Identifiers', 'Status', 'Docs', 'Team', 'New Scan', 'Reports', 'Subscriptions'];
+  const menu = ['Home', 'Identifiers', 'Status', 'Docs', 'Team', 'New Scan', 'Threat Intel Feeds', 'Credentials', 'Reports', 'Subscriptions', 'Settings'];
 
   const categories = useMemo(() => ({
     labels: ['Market Listing', 'Forum Posts', 'Profiles', 'Pastes'],
@@ -68,7 +71,7 @@ export default function UserDashboard({ onLogout }) {
 
 
   return (
-    <div className={`dashboard ${activeTab === 'Subscriptions' ? 'dark' : 'light'}`}>
+    <div className={`dashboard ${(activeTab === 'Subscriptions' || activeTab === 'Settings' || activeTab === 'Credentials' || activeTab === 'Threat Intel Feeds') ? 'dark' : 'light'}`}>
       <Sidebar
         items={menu}
         theme={activeTab === 'Subscriptions' ? 'dark' : 'blue'}
@@ -83,11 +86,11 @@ export default function UserDashboard({ onLogout }) {
       />
       <main className="content">
         <div className="admin-header">
-          <div className="left"><h2>{activeTab}</h2></div>
-          <div className="right"><button className="icon-btn">🔔</button><button className="icon-btn">👤</button></div>
+          {/* <div className="left"><h2>{activeTab}</h2></div> */}
+          {/* <div className="right"><button className="icon-btn">🔔</button><button className="icon-btn">👤</button></div> */}
         </div>
 
-        {activeTab !== 'Subscriptions' && activeTab !== 'Reports' && (
+        {activeTab !== 'Subscriptions' && activeTab !== 'Reports' && activeTab !== 'Settings' && activeTab !== 'Credentials' && activeTab !== 'Threat Intel Feeds' && (
           <div className="grid">
             <section className="card span-8">
               <div className="card-head">
@@ -154,6 +157,18 @@ export default function UserDashboard({ onLogout }) {
               <div className="chart"><Line data={tendency} /></div>
             </section>
           </div>
+        )}
+
+        {activeTab === 'Settings' && (
+          <SettingsAPIIntegration />
+        )}
+
+        {activeTab === 'Credentials' && (
+          <CredentialsDashboard />
+        )}
+
+        {activeTab === 'Threat Intel Feeds' && (
+          <ThreatIntelFeeds />
         )}
 
         {activeTab === 'Subscriptions' && (

@@ -1,12 +1,13 @@
 :root {
   --primary: #1976d2;
   --bg-light: #f4f6f8;
-  --bg-dark: #0f172a;
+  --bg-dark: #0f172a; 
   --card-light: #ffffff;
   --card-dark: #1f2937;
   --text-light: #0f172a;
   --text-dark: #e5e7eb;
   --muted: #90a4ae;
+
 }
 
 .login-container { display: grid; place-items: center; min-height: 100vh; background: var(--bg-light); }

@@ -6,7 +6,6 @@ import AdminDashboard from './pages/AdminDashboard';
 import LandingPage from './pages/LandingPage';
 import UserNewScan from './pages/UserNewScan';
 import AdminThreatFlow from './pages/AdminThreatFlow';
-
 function RequireRole({ children, role }) {
   const storedRole = localStorage.getItem('role');
   if (storedRole !== role) return <Navigate to="/" replace />;
